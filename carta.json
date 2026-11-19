@@ -1,0 +1,656 @@
+{
+ "_com_editar": "Per canviar un preu: canvia el número de 'preu' (amb punt, no coma). Res més.",
+ "seccions": [
+  {
+   "id": "arros",
+   "nom": {
+    "ca": "Arròs i tallarines",
+    "es": "Arroz y tallarines",
+    "en": "Rice & noodles",
+    "zh": "炒饭与炒面"
+   },
+   "items": [
+    {
+     "n": "30",
+     "ca": "Arròs fregit amb pollastre",
+     "es": "Arroz frito con pollo",
+     "en": "Fried rice with chicken",
+     "preu": 5.7,
+     "zh": "鸡肉炒饭"
+    },
+    {
+     "n": "31",
+     "ca": "Arròs fregit amb pernil",
+     "es": "Arroz frito con jamón",
+     "en": "Fried rice with ham",
+     "preu": 5.7,
+     "zh": "火腿炒饭"
+    },
+    {
+     "n": "32",
+     "ca": "Arròs fregit amb gamba",
+     "es": "Arroz frito con gamba",
+     "en": "Fried rice with prawns",
+     "preu": 6.2,
+     "zh": "虾仁炒饭"
+    },
+    {
+     "n": "33",
+     "ca": "Arròs fregit amb truita",
+     "es": "Arroz frito con tortilla",
+     "en": "Fried rice with omelette",
+     "preu": 5.5,
+     "zh": "鸡蛋炒饭"
+    },
+    {
+     "n": "34",
+     "ca": "Arròs fregit amb pollastre i gamba",
+     "es": "Arroz frito con pollo y gambas",
+     "en": "Fried rice with chicken & prawns",
+     "preu": 6.8,
+     "zh": "鸡肉虾仁炒饭"
+    },
+    {
+     "n": "35",
+     "ca": "Arròs fregit al curri amb pollastre",
+     "es": "Arroz frito al curry con pollo",
+     "en": "Curry fried rice with chicken",
+     "preu": 6.2,
+     "zh": "咖喱鸡肉炒饭"
+    },
+    {
+     "n": "36",
+     "ca": "Tallarines amb gamba",
+     "es": "Tallarines fritos con gambas",
+     "en": "Noodles with prawns",
+     "preu": 6.7,
+     "zh": "虾仁炒面"
+    },
+    {
+     "n": "37",
+     "ca": "Tallarines amb verdures",
+     "es": "Tallarines fritos con verduras",
+     "en": "Noodles with vegetables",
+     "preu": 6.2,
+     "zh": "蔬菜炒面"
+    },
+    {
+     "n": "38",
+     "ca": "Tallarines amb pollastre",
+     "es": "Tallarines fritos con pollo",
+     "en": "Noodles with chicken",
+     "preu": 6.2,
+     "zh": "鸡肉炒面"
+    },
+    {
+     "n": "39",
+     "ca": "Tallarines fregides amb pollastre i gamba",
+     "es": "Tallarines fritos con pollo y gamba",
+     "en": "Fried noodles with chicken & prawns",
+     "preu": 7.3,
+     "zh": "鸡肉虾仁炒面"
+    },
+    {
+     "n": "27",
+     "ca": "Pa xinès",
+     "es": "Pan chino",
+     "en": "Chinese bread",
+     "preu": 2.0,
+     "zh": "中式煎饼"
+    },
+    {
+     "n": "28",
+     "ca": "Amanida de la casa",
+     "es": "Ensalada de la casa",
+     "en": "House salad",
+     "preu": 4.2,
+     "zh": "招牌沙拉"
+    },
+    {
+     "n": "29",
+     "ca": "Amanida de tonyina",
+     "es": "Ensalada de atún",
+     "en": "Tuna salad",
+     "preu": 4.2,
+     "zh": "金枪鱼沙拉"
+    }
+   ]
+  },
+  {
+   "id": "tapes",
+   "nom": {
+    "ca": "Tapes",
+    "es": "Tapas",
+    "en": "Tapas",
+    "zh": "西班牙小吃"
+   },
+   "items": [
+    {
+     "n": "15",
+     "ca": "Patates braves",
+     "es": "Patatas bravas",
+     "en": "Patatas bravas",
+     "preu": 5.0,
+     "zh": "辣味土豆（Bravas）"
+    },
+    {
+     "n": "16",
+     "ca": "Patates fregides",
+     "es": "Patatas fritas",
+     "en": "Chips",
+     "preu": 5.0,
+     "zh": "炸薯条"
+    },
+    {
+     "n": "17",
+     "ca": "Chocos",
+     "es": "Chocos",
+     "en": "Fried cuttlefish",
+     "preu": 7.0,
+     "zh": "炸墨鱼"
+    },
+    {
+     "n": "18",
+     "ca": "Calamars",
+     "es": "Calamares",
+     "en": "Fried squid",
+     "preu": 7.0,
+     "zh": "炸鱿鱼"
+    },
+    {
+     "n": "19",
+     "ca": "Croquetes de pollastre",
+     "es": "Croquetas de pollo",
+     "en": "Chicken croquettes",
+     "preu": 5.5,
+     "zh": "鸡肉可乐饼"
+    },
+    {
+     "n": "20",
+     "ca": "Fuet",
+     "es": "Fuet",
+     "en": "Fuet (Catalan dry sausage)",
+     "preu": 4.5,
+     "zh": "加泰罗尼亚风干肠"
+    },
+    {
+     "n": "21",
+     "ca": "Formatge",
+     "es": "Queso",
+     "en": "Cheese",
+     "preu": 4.5,
+     "zh": "奶酪"
+    },
+    {
+     "n": "22",
+     "ca": "Olives",
+     "es": "Aceitunas",
+     "en": "Olives",
+     "preu": 2.0,
+     "zh": "橄榄"
+    },
+    {
+     "n": "23",
+     "ca": "Nuggets de pollastre",
+     "es": "Nuggets de pollo",
+     "en": "Chicken nuggets",
+     "preu": 5.8,
+     "zh": "鸡块"
+    },
+    {
+     "n": "24",
+     "ca": "Crestes xineses fregides",
+     "es": "Empanadillas chinas fritas",
+     "en": "Fried Chinese dumplings",
+     "preu": 5.8,
+     "zh": "炸饺子"
+    },
+    {
+     "n": "26",
+     "ca": "Rotllets de primavera",
+     "es": "Rollitos de primavera",
+     "en": "Spring rolls",
+     "preu": 2.0,
+     "zh": "春卷"
+    },
+    {
+     "n": "26a",
+     "ca": "Aletes de pollastre",
+     "es": "Alitas de pollo",
+     "en": "Chicken wings",
+     "preu": 6.8,
+     "zh": "鸡翅"
+    }
+   ]
+  },
+  {
+   "id": "entrepans",
+   "nom": {
+    "ca": "Entrepans",
+    "es": "Bocadillos",
+    "en": "Sandwiches",
+    "zh": "三明治"
+   },
+   "nota": {
+    "ca": "Calents, en pa de barra.",
+    "es": "Calientes, en pan de barra.",
+    "en": "Hot ones come on a baguette.",
+    "zh": "热三明治用法棍面包。"
+   },
+   "items": [
+    {
+     "n": "1",
+     "ca": "Pernil serrà",
+     "es": "Jamón serrano",
+     "en": "Serrano ham",
+     "preu": 3.9,
+     "zh": "塞拉诺火腿"
+    },
+    {
+     "n": "2",
+     "ca": "Pernil dolç",
+     "es": "Jamón york",
+     "en": "Cooked ham",
+     "preu": 3.9,
+     "zh": "熟火腿"
+    },
+    {
+     "n": "3",
+     "ca": "Formatge",
+     "es": "Queso",
+     "en": "Cheese",
+     "preu": 3.9,
+     "zh": "奶酪"
+    },
+    {
+     "n": "4",
+     "ca": "Fuet",
+     "es": "Fuet",
+     "en": "Fuet",
+     "preu": 3.9,
+     "zh": "加泰罗尼亚风干肠"
+    },
+    {
+     "n": "6",
+     "ca": "Tonyina",
+     "es": "Atún",
+     "en": "Tuna",
+     "preu": 4.0,
+     "zh": "金枪鱼"
+    },
+    {
+     "n": "7",
+     "ca": "Frankfurt (calent)",
+     "es": "Frankfurt (caliente)",
+     "en": "Frankfurter (hot)",
+     "preu": 3.9,
+     "zh": "法兰克福香肠（热）"
+    },
+    {
+     "n": "8",
+     "ca": "Hamburguesa (calent)",
+     "es": "Hamburguesa (caliente)",
+     "en": "Burger (hot)",
+     "preu": 5.0,
+     "zh": "汉堡肉（热）"
+    },
+    {
+     "n": "9",
+     "ca": "Bacon (calent)",
+     "es": "Beicon (caliente)",
+     "en": "Bacon (hot)",
+     "preu": 4.4,
+     "zh": "培根（热）"
+    },
+    {
+     "n": "10",
+     "ca": "Llom (calent)",
+     "es": "Lomo (caliente)",
+     "en": "Pork loin (hot)",
+     "preu": 4.4,
+     "zh": "猪里脊（热）"
+    },
+    {
+     "n": "11",
+     "ca": "Pit de pollastre (calent)",
+     "es": "Pechuga de pollo (caliente)",
+     "en": "Chicken breast (hot)",
+     "preu": 5.4,
+     "zh": "鸡胸肉（热）"
+    },
+    {
+     "n": "12",
+     "ca": "Truita a la francesa (calent)",
+     "es": "Tortilla francesa (caliente)",
+     "en": "Plain omelette (hot)",
+     "preu": 4.0,
+     "zh": "原味煎蛋（热）"
+    },
+    {
+     "n": "13",
+     "ca": "Bikini (calent)",
+     "es": "Bikini (caliente)",
+     "en": "Ham & cheese toastie (hot)",
+     "preu": 3.0,
+     "zh": "火腿奶酪烤三明治（热）"
+    },
+    {
+     "n": "+",
+     "ca": "Suplement: formatge, enciam, tomàquet…",
+     "es": "Suplemento: queso, lechuga, tomate…",
+     "en": "Extra: cheese, lettuce, tomato…",
+     "preu": 0.6,
+     "zh": "加料：奶酪、生菜、番茄…"
+    },
+    {
+     "n": "+",
+     "ca": "Suplement: ceba",
+     "es": "Suplemento: cebolla",
+     "en": "Extra: onion",
+     "preu": 1.2,
+     "zh": "加料：洋葱"
+    }
+   ]
+  },
+  {
+   "id": "combinats",
+   "nom": {
+    "ca": "Plats combinats",
+    "es": "Platos combinados",
+    "en": "Combo plates",
+    "zh": "套餐"
+   },
+   "nota": {
+    "ca": "Tots amb amanida i patates.",
+    "es": "Todos con ensalada y patatas.",
+    "en": "All served with salad and chips.",
+    "zh": "均配沙拉和薯条。"
+   },
+   "items": [
+    {
+     "n": "1",
+     "ca": "Frankfurt",
+     "es": "Frankfurt",
+     "en": "Frankfurter",
+     "preu": 6.9,
+     "zh": "法兰克福香肠"
+    },
+    {
+     "n": "2",
+     "ca": "Llom",
+     "es": "Lomo",
+     "en": "Pork loin",
+     "preu": 7.8,
+     "zh": "猪里脊"
+    },
+    {
+     "n": "3",
+     "ca": "Pit de pollastre",
+     "es": "Pechuga de pollo",
+     "en": "Chicken breast",
+     "preu": 8.5,
+     "zh": "鸡胸肉"
+    },
+    {
+     "n": "4",
+     "ca": "Hamburguesa",
+     "es": "Hamburguesa",
+     "en": "Burger",
+     "preu": 8.5,
+     "zh": "汉堡肉"
+    },
+    {
+     "n": "5",
+     "ca": "Bacon",
+     "es": "Beicon",
+     "en": "Bacon",
+     "preu": 7.8,
+     "zh": "培根"
+    },
+    {
+     "n": "+",
+     "ca": "Suplement: ou ferrat",
+     "es": "Suplemento: huevo frito",
+     "en": "Extra: fried egg",
+     "preu": 1.5,
+     "zh": "加料：煎蛋"
+    }
+   ]
+  },
+  {
+   "id": "begudes",
+   "nom": {
+    "ca": "Begudes",
+    "es": "Bebidas",
+    "en": "Drinks",
+    "zh": "饮品"
+   },
+   "items": [
+    {
+     "n": "180",
+     "ca": "Estrella Damm",
+     "es": "Estrella Damm",
+     "en": "Estrella Damm",
+     "preu": 2.2,
+     "zh": "Estrella Damm 啤酒"
+    },
+    {
+     "n": "181",
+     "ca": "San Miguel",
+     "es": "San Miguel",
+     "en": "San Miguel",
+     "preu": 1.8,
+     "zh": "San Miguel 啤酒"
+    },
+    {
+     "n": "182",
+     "ca": "Heineken",
+     "es": "Heineken",
+     "en": "Heineken",
+     "preu": 2.5,
+     "zh": "喜力啤酒"
+    },
+    {
+     "n": "183",
+     "ca": "Clara",
+     "es": "Clara",
+     "en": "Shandy (clara)",
+     "preu": 2.1,
+     "zh": "啤酒兑柠檬汽水"
+    },
+    {
+     "n": "184",
+     "ca": "Cervesa sense alcohol",
+     "es": "Cerveza sin alcohol",
+     "en": "Alcohol-free beer",
+     "preu": 2.3,
+     "zh": "无醇啤酒"
+    },
+    {
+     "n": "185",
+     "ca": "Voll-Damm",
+     "es": "Voll-Damm",
+     "en": "Voll-Damm",
+     "preu": 2.5,
+     "zh": "Voll-Damm 啤酒"
+    },
+    {
+     "n": "186",
+     "ca": "Quinto",
+     "es": "Quinto",
+     "en": "Quinto (small beer)",
+     "preu": 1.7,
+     "zh": "小瓶啤酒（Quinto）"
+    },
+    {
+     "n": "187",
+     "ca": "Free Damm llimona",
+     "es": "Free Damm limón",
+     "en": "Free Damm lemon",
+     "preu": 2.3,
+     "zh": "Free Damm 柠檬味"
+    },
+    {
+     "n": "188",
+     "ca": "Coca-Cola",
+     "es": "Coca-Cola",
+     "en": "Coca-Cola",
+     "preu": 2.0,
+     "zh": "可口可乐"
+    },
+    {
+     "n": "189",
+     "ca": "Fanta taronja",
+     "es": "Fanta naranja",
+     "en": "Fanta orange",
+     "preu": 2.0,
+     "zh": "芬达橙味"
+    },
+    {
+     "n": "190",
+     "ca": "Fanta llimona",
+     "es": "Fanta limón",
+     "en": "Fanta lemon",
+     "preu": 2.0,
+     "zh": "芬达柠檬味"
+    },
+    {
+     "n": "191",
+     "ca": "Nestea",
+     "es": "Nestea",
+     "en": "Nestea",
+     "preu": 2.0,
+     "zh": "雀巢冰茶"
+    },
+    {
+     "n": "192",
+     "ca": "Coca-Cola Zero",
+     "es": "Coca-Cola Zero",
+     "en": "Coca-Cola Zero",
+     "preu": 2.0,
+     "zh": "零度可口可乐"
+    },
+    {
+     "n": "193",
+     "ca": "Tònica",
+     "es": "Tónica",
+     "en": "Tonic water",
+     "preu": 2.3,
+     "zh": "汤力水"
+    },
+    {
+     "n": "194",
+     "ca": "Suc",
+     "es": "Zumo",
+     "en": "Juice",
+     "preu": 2.2,
+     "zh": "果汁"
+    },
+    {
+     "n": "195",
+     "ca": "Suc natural",
+     "es": "Zumo natural",
+     "en": "Fresh juice",
+     "preu": 3.0,
+     "zh": "鲜榨果汁"
+    },
+    {
+     "n": "196",
+     "ca": "Aigua",
+     "es": "Agua",
+     "en": "Water",
+     "preu": 1.0,
+     "zh": "矿泉水"
+    },
+    {
+     "n": "197",
+     "ca": "Aigua gran",
+     "es": "Agua grande",
+     "en": "Large water",
+     "preu": 1.9,
+     "zh": "大瓶矿泉水"
+    },
+    {
+     "n": "198",
+     "ca": "Aigua amb gas (Vichy)",
+     "es": "Agua con gas (Vichy)",
+     "en": "Sparkling water (Vichy)",
+     "preu": 2.3,
+     "zh": "气泡水（Vichy）"
+    },
+    {
+     "n": "199",
+     "ca": "Aquarius",
+     "es": "Aquarius",
+     "en": "Aquarius",
+     "preu": 2.1,
+     "zh": "Aquarius 运动饮料"
+    },
+    {
+     "n": "200",
+     "ca": "Bitter Kas",
+     "es": "Bitter Kas",
+     "en": "Bitter Kas",
+     "preu": 2.3,
+     "zh": "Bitter Kas"
+    },
+    {
+     "n": "201",
+     "ca": "Cacaolat",
+     "es": "Cacaolat",
+     "en": "Cacaolat (chocolate milk)",
+     "preu": 2.2,
+     "zh": "Cacaolat 巧克力奶"
+    },
+    {
+     "n": "202",
+     "ca": "Tinto d’estiu",
+     "es": "Tinto de verano",
+     "en": "Red wine & lemon soda",
+     "preu": 3.0,
+     "zh": "夏日红酒（Tinto de verano）"
+    },
+    {
+     "n": "203",
+     "ca": "Copa de vi negre",
+     "es": "Copa de vino tinto",
+     "en": "Glass of red wine",
+     "preu": 2.3,
+     "zh": "一杯红葡萄酒"
+    },
+    {
+     "n": "204",
+     "ca": "Corona",
+     "es": "Corona",
+     "en": "Corona",
+     "preu": 2.5,
+     "zh": "科罗娜啤酒"
+    },
+    {
+     "n": "205",
+     "ca": "Desperados",
+     "es": "Desperados",
+     "en": "Desperados",
+     "preu": 2.5,
+     "zh": "Desperados 啤酒"
+    },
+    {
+     "n": "206",
+     "ca": "Daura sense gluten",
+     "es": "Daura sin gluten",
+     "en": "Daura (gluten-free beer)",
+     "preu": 2.5,
+     "zh": "Daura 无麸质啤酒"
+    },
+    {
+     "n": "207",
+     "ca": "Red Bull",
+     "es": "Red Bull",
+     "en": "Red Bull",
+     "preu": 2.5,
+     "zh": "红牛"
+    }
+   ]
+  }
+ ]
+}

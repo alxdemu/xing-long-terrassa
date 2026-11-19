@@ -196,7 +196,9 @@ html:lang(zh-Hans) .f-line{font-family:var(--sans);font-weight:500}
 .tab[aria-selected="true"]{color:var(--paper)}
 .panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:56px;margin-top:16px;animation:fade .55s var(--ease) both}
 @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.panel .note{grid-column:1/-1;margin:8px 0 6px;font-family:var(--script);font-size:22px;color:var(--tan)}
+.panel .note{grid-column:1/-1;justify-self:start;display:inline-flex;align-items:center;gap:10px;margin:12px 0 10px;padding:5px 20px 6px 6px;border-radius:999px;background:var(--forest);color:var(--gold);font-family:var(--script);font-size:22px;line-height:1.25;transform:rotate(-1.5deg);box-shadow:0 10px 22px -10px rgba(19,34,26,.55)}
+.panel .note::before{content:"";flex:none;width:30px;height:30px;border-radius:50%;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2313221A' d='M12 2c.6 3.2-1.2 5-2.6 6.6C8 10.2 7 11.7 7 14a5 5 0 0 0 10 0c0-2-1-3.4-1.8-4.4-.2 1.3-.9 2.2-1.9 2.6.4-2.8-.1-6.6-1.3-10.2z'/%3E%3C/svg%3E") center/17px no-repeat}
+html:lang(zh-Hans) .panel .note{font-family:var(--sans);font-size:17px;font-weight:600;padding-top:6px;padding-bottom:6px}
 .item{display:grid;grid-template-columns:42px minmax(0,1fr) auto 44px;align-items:center;gap:4px 12px;padding:14px 0;border-bottom:1px dashed rgba(64,34,31,.18)}
 .item .n{font-family:var(--display);font-size:15px;font-weight:800;color:var(--tan)}
 .item .nm{font-weight:600;font-size:17px;line-height:1.3}
@@ -242,6 +244,11 @@ footer{position:relative;margin-top:clamp(120px,13vw,180px);background:var(--for
 .f-line{font-family:var(--script);font-size:clamp(26px,3vw,40px);margin:40px 0 0;color:var(--gold)}
 .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 24px;margin-top:70px;padding-top:22px;border-top:1px solid rgba(251,246,234,.14);font-size:13.5px;color:rgba(251,246,234,.65);text-align:left}
 
+.foot{padding-right:84px}
+.adm{display:inline-flex;align-items:center;gap:10px}
+.adm-logo{display:inline-flex;align-items:center;gap:8px;color:var(--paper)}
+.adm-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;border:1.5px solid var(--gold);color:var(--gold);font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 78;font-size:12px;letter-spacing:.02em;line-height:1;transform:rotate(-4deg)}
+.adm-name{font-family:var(--display);font-weight:700;font-size:14.5px;letter-spacing:.01em}
 /* ---------- editor ---------- */
 .ed{position:fixed;inset:0;z-index:80;background:var(--paper);overflow:auto;display:none}
 .ed.open{display:block;animation:fade .4s var(--ease) both}
@@ -449,7 +456,6 @@ body.has-tray .totop{bottom:110px}
 <div class="anchor" aria-hidden="true"><div class="obj pop big" data-speed="-140" data-rot="-60" style="right:-4vw;top:-170px;width:min(380px,38vw);--rt:16deg"><svg viewBox="200 10 310 250" aria-hidden="true"><g transform="rotate(2.9 370 140)"><path fill="#A3864F" d="M224,112 C221,167 262,213 331,214 C391,215 438,190 443,149 C380,136 300,124 224,112 Z"/><path fill="#D6C298" d="M236,114 C305,121 395,134 443,149 C398,153 318,143 236,114 Z"/><path fill="#B99B63" transform="translate(18,0)" d="M457,96 C482,117 487,162 465,180 C457,187 446,187 437,182 L440,176 C448,179 455,177 459,171 C472,152 470,122 451,102 Z"/><path fill="#C5AB78" d="M211,224 C255,221 306,225 346,233 C306,231 256,232 213,234 Z"/><path fill="#C5AB78" d="M241,241 C290,246 340,247 385,239 C341,250 290,253 245,248 Z"/></g><g transform="translate(0,-6)" style="fill:#C9AE78;color:#C9AE78"><use href="#steamPair" x="300" y="28" width="75" height="95"/></g></svg></div><div class="obj pop flat" data-speed="-220" data-rot="-30" style="left:10vw;top:-90px;width:min(90px,10vw);--rt:-10deg"><svg viewBox="300 28 75 95" aria-hidden="true" style="fill:#C9AE78;color:#C9AE78"><use href="#steamPair"/></svg></div></div>
 <!-- TERRACE -->
 <section class="terrace" id="terrassa">
-  <div class="deco stroke-draw rv" style="right:4%;top:40px;width:min(420px,40vw)" aria-hidden="true"><svg viewBox="0 0 420 60" fill="none" stroke="#C5AB78" stroke-width="7" stroke-linecap="round" style="--len:440"><path d="M6,22 C120,14 270,16 410,30"/><path d="M60,46 C160,52 270,52 370,40" style="--len:330"/></svg></div>
   <div class="wrap">
     <div class="intro rv">
       <div><span class="kicker" data-i="terKicker">L’ànima del lloc</span><h2 data-i="terTitle">La terrassa</h2></div>
@@ -521,6 +527,7 @@ body.has-tray .totop{bottom:110px}
     <p class="f-line" data-i="footLine">Cuina casolana i begudes al cor de Terrassa.</p>
     <div class="foot">
       <span>Xing Long · Bar Cafeteria · C/ Miquel Vives 28, 08222 Terrassa · 931 912 974</span>
+      <span class="adm"><span data-i="madeBy">Web feta per</span> <span class="adm-logo"><span class="adm-mark" aria-hidden="true">adm</span><span class="adm-name">ADM Solutions</span></span></span>
     </div>
   </div>
 </footer>
@@ -550,7 +557,7 @@ ca:{navDishes:"Plats",navLily:"El lloc",navTerrace:"Terrassa",navMenu:"Carta",na
  altWide:"La terrassa sota el porxo, mirant al parc",altGrass:"Taula d’alumini davant la gespa",altChair:"Una cadira sobre la gespa del parc",altPorch:"Taules entre les columnes del porxo",
  menuKicker:"Tot el que surt de la cuina",menuTitle:"La carta",menuNote:"Toca + per sumar plats i veure el total.",menuFoot:"Preus amb IVA inclòs.",editLink:"Canviar preus",
  visitKicker:"T’esperem",visitTitle:"Vine a dinar",kWhere:"On",kWhen:"Quan",kTake:"Per emportar",directions:"Com arribar ↗",everyday:"Cada dia",takeNote:"Truca, encarrega i passa a recollir.",
- footLine:"Cuina casolana i begudes al cor de Terrassa.",
+ footLine:"Cuina casolana i begudes al cor de Terrassa.",madeBy:"Web feta per",
  clear:"Buidar",say:"Números de la carta:",items1:"plat",itemsN:"plats",
  edTitle:"Canviar preus",close:"Tancar",reset:"Preus originals",save:"Desar",saved:"Preus desats",resetDone:"Preus originals recuperats",
  edDemo:"Toca + o − (10 cèntims) o escriu el preu nou i prem Desar: la carta s’actualitza a l’instant. En aquesta demo, els canvis només es guarden en aquest telèfon.",
@@ -567,7 +574,7 @@ es:{navDishes:"Platos",navLily:"El sitio",navTerrace:"Terraza",navMenu:"Carta",n
  altWide:"La terraza bajo el porche, mirando al parque",altGrass:"Mesa de aluminio frente al césped",altChair:"Una silla sobre el césped del parque",altPorch:"Mesas entre las columnas del porche",
  menuKicker:"Todo lo que sale de la cocina",menuTitle:"La carta",menuNote:"Toca + para sumar platos y ver el total.",menuFoot:"Precios con IVA incluido.",editLink:"Cambiar precios",
  visitKicker:"Te esperamos",visitTitle:"Ven a comer",kWhere:"Dónde",kWhen:"Cuándo",kTake:"Para llevar",directions:"Cómo llegar ↗",everyday:"Todos los días",takeNote:"Llama, encarga y pasa a recoger.",
- footLine:"Cocina casera y bebidas en el corazón de Terrassa.",
+ footLine:"Cocina casera y bebidas en el corazón de Terrassa.",madeBy:"Web hecha por",
  clear:"Vaciar",say:"Números de la carta:",items1:"plato",itemsN:"platos",
  edTitle:"Cambiar precios",close:"Cerrar",reset:"Precios originales",save:"Guardar",saved:"Precios guardados",resetDone:"Precios originales recuperados",
  edDemo:"Toca + o − (10 céntimos) o escribe el precio nuevo y pulsa Guardar: la carta se actualiza al instante. En esta demo, los cambios solo se guardan en este teléfono.",
@@ -584,12 +591,12 @@ en:{navDishes:"Dishes",navLily:"The spot",navTerrace:"Terrace",navMenu:"Menu",na
  altWide:"The terrace under the porch, looking out on the park",altGrass:"An aluminium table facing the lawn",altChair:"A chair on the park lawn",altPorch:"Tables between the porch columns",
  menuKicker:"Everything from the kitchen",menuTitle:"The menu",menuNote:"Tap + to add dishes and see the total.",menuFoot:"Prices include VAT.",editLink:"Change prices",
  visitKicker:"See you soon",visitTitle:"Come for lunch",kWhere:"Where",kWhen:"When",kTake:"Takeaway",directions:"Directions ↗",everyday:"Every day",takeNote:"Call, order, then pick it up.",
- footLine:"Home-style food and drinks in the heart of Terrassa.",
+ footLine:"Home-style food and drinks in the heart of Terrassa.",madeBy:"Website by",
  clear:"Clear",say:"Menu numbers:",items1:"item",itemsN:"items",
  edTitle:"Change prices",close:"Close",reset:"Original prices",save:"Save",saved:"Prices saved",resetDone:"Original prices restored",
  edDemo:"Tap + or − (10 cents) or type the new price, then press Save: the menu updates instantly. In this demo, changes are only stored on this phone.",
  open:"Open now",closed:"Closed · opens at 7:00",todayOpen:"Open right now, until 23:30.",todayClosed:"Closed right now. Opens at 7:00.",add:"Add",menuBtn:"Menu",closeBtn:"Close",top:"Back to top"},
-zh:{navDishes:"菜品",navLily:"关于我们",navTerrace:"露台",navMenu:"菜单",navVisit:"位置",slides:[["露台", "面朝公园，距 ESEIAAT 两分钟"], ["炒饭", "让人一来再来的招牌菜"], ["门廊下", "二十多个户外座位"], ["铁锅炒面", "分量十足，保证吃饱"], ["西班牙辣味土豆", "配一杯啤酒一起分享"]],s1alt:"从露台望去，阳光穿过公园的树木",s2alt:"一盘鸡肉炒饭",s3alt:"门廊下的露台，有人在用餐",s4alt:"一盘炒面",s5alt:"辣味土豆配啤酒",lilyKicker:"每天早上七点开门",lilyTitle:"泰拉萨人的心头好",lilyText:"学生、街坊和下班的人——大家都来 Xing Long 吃饭。现炒的炒饭和炒面，还有三明治和西班牙小吃。家常味道，微笑上桌。",lilyText2:"门外是露台：草坪、树荫和阳光，一个安静放松的角落。",reviews:"Google 上 86 条评价",reviewsLink:"查看评价 ↗",doorCap:"C/ Miquel Vives, 28",altDoor:"Xing Long 的门口，壁灯与红砖墙",dishKicker:"人人必点",dishTitle:"菜品",dishText:"铁锅炒饭和炒面、适合分享的西班牙小吃，还有现做的三明治。",fullMenu:"完整菜单",terKicker:"这里的灵魂",terTitle:"露台",terText:"店内不大，精彩都在户外。门廊下摆着桌椅，正前方就是公园的草坪和大树。",terCap:"面朝公园",altWide:"门廊下的露台，面朝公园",altGrass:"草坪前的铝制餐桌",altChair:"公园草坪上的一把椅子",altPorch:"门廊柱子之间的餐桌",menuKicker:"厨房里的一切",menuTitle:"菜单",menuNote:"点 + 加菜，查看总价。",menuFoot:"价格已含增值税。",editLink:"修改价格",visitKicker:"欢迎光临",visitTitle:"来吃饭吧",kWhere:"地址",kWhen:"营业时间",kTake:"外卖自取",directions:"导航 ↗",everyday:"每天",takeNote:"打电话点餐，然后到店自取。",footLine:"泰拉萨市中心的家常菜与饮品。",clear:"清空",say:"菜单编号：",items1:"份",itemsN:"份",edTitle:"修改价格",close:"关闭",reset:"恢复原价",save:"保存",saved:"价格已保存",resetDone:"已恢复原价",edDemo:"点 + 或 −（每次 0.10 欧元），或直接输入新价格，然后点保存：菜单会立即更新。在这个演示版中，修改只保存在这部手机上。",open:"营业中",closed:"已打烊 · 7:00 开门",todayOpen:"现在正在营业，营业到 23:30。",todayClosed:"现在已打烊，早上 7:00 开门。",add:"添加",menuBtn:"菜单",closeBtn:"关闭",top:"回到顶部"}
+zh:{navDishes:"菜品",navLily:"关于我们",navTerrace:"露台",navMenu:"菜单",navVisit:"位置",slides:[["露台", "面朝公园，距 ESEIAAT 两分钟"], ["炒饭", "让人一来再来的招牌菜"], ["门廊下", "二十多个户外座位"], ["铁锅炒面", "分量十足，保证吃饱"], ["西班牙辣味土豆", "配一杯啤酒一起分享"]],s1alt:"从露台望去，阳光穿过公园的树木",s2alt:"一盘鸡肉炒饭",s3alt:"门廊下的露台，有人在用餐",s4alt:"一盘炒面",s5alt:"辣味土豆配啤酒",lilyKicker:"每天早上七点开门",lilyTitle:"泰拉萨人的心头好",lilyText:"学生、街坊和下班的人——大家都来 Xing Long 吃饭。现炒的炒饭和炒面，还有三明治和西班牙小吃。家常味道，微笑上桌。",lilyText2:"门外是露台：草坪、树荫和阳光，一个安静放松的角落。",reviews:"Google 上 86 条评价",reviewsLink:"查看评价 ↗",doorCap:"C/ Miquel Vives, 28",altDoor:"Xing Long 的门口，壁灯与红砖墙",dishKicker:"人人必点",dishTitle:"菜品",dishText:"铁锅炒饭和炒面、适合分享的西班牙小吃，还有现做的三明治。",fullMenu:"完整菜单",terKicker:"这里的灵魂",terTitle:"露台",terText:"店内不大，精彩都在户外。门廊下摆着桌椅，正前方就是公园的草坪和大树。",terCap:"面朝公园",altWide:"门廊下的露台，面朝公园",altGrass:"草坪前的铝制餐桌",altChair:"公园草坪上的一把椅子",altPorch:"门廊柱子之间的餐桌",menuKicker:"厨房里的一切",menuTitle:"菜单",menuNote:"点 + 加菜，查看总价。",menuFoot:"价格已含增值税。",editLink:"修改价格",visitKicker:"欢迎光临",visitTitle:"来吃饭吧",kWhere:"地址",kWhen:"营业时间",kTake:"外卖自取",directions:"导航 ↗",everyday:"每天",takeNote:"打电话点餐，然后到店自取。",madeBy:"网站制作",footLine:"泰拉萨市中心的家常菜与饮品。",clear:"清空",say:"菜单编号：",items1:"份",itemsN:"份",edTitle:"修改价格",close:"关闭",reset:"恢复原价",save:"保存",saved:"价格已保存",resetDone:"已恢复原价",edDemo:"点 + 或 −（每次 0.10 欧元），或直接输入新价格，然后点保存：菜单会立即更新。在这个演示版中，修改只保存在这部手机上。",open:"营业中",closed:"已打烊 · 7:00 开门",todayOpen:"现在正在营业，营业到 23:30。",todayClosed:"现在已打烊，早上 7:00 开门。",add:"添加",menuBtn:"菜单",closeBtn:"关闭",top:"回到顶部"}
 };
 /* dish cards: photo cards reference a menu number; text cards use the logo bowl */
 var CARDS=[

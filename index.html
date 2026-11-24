@@ -196,18 +196,29 @@ html:lang(zh-Hans) .f-line{font-family:var(--sans);font-weight:500}
 .tab[aria-selected="true"]{color:var(--paper)}
 .panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:56px;margin-top:16px;animation:fade .55s var(--ease) both}
 @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.panel.still{animation:none}
 .panel .note{grid-column:1/-1;justify-self:start;display:inline-flex;align-items:center;gap:10px;margin:12px 0 10px;padding:5px 20px 6px 6px;border-radius:999px;background:var(--forest);color:var(--gold);font-family:var(--script);font-size:22px;line-height:1.25;transform:rotate(-1.5deg);box-shadow:0 10px 22px -10px rgba(19,34,26,.55)}
 .panel .note::before{content:"";flex:none;width:30px;height:30px;border-radius:50%;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2313221A' d='M12 2c.6 3.2-1.2 5-2.6 6.6C8 10.2 7 11.7 7 14a5 5 0 0 0 10 0c0-2-1-3.4-1.8-4.4-.2 1.3-.9 2.2-1.9 2.6.4-2.8-.1-6.6-1.3-10.2z'/%3E%3C/svg%3E") center/17px no-repeat}
 html:lang(zh-Hans) .panel .note{font-family:var(--sans);font-size:17px;font-weight:600;padding-top:6px;padding-bottom:6px}
-.item{display:grid;grid-template-columns:42px minmax(0,1fr) auto 44px;align-items:center;gap:4px 12px;padding:14px 0;border-bottom:1px dashed rgba(64,34,31,.18)}
-.item .n{font-family:var(--display);font-size:15px;font-weight:800;color:var(--tan)}
-.item .nm{font-weight:600;font-size:17px;line-height:1.3}
+.item{display:grid;grid-template-columns:42px minmax(0,1fr) auto auto;grid-template-areas:"n nm pr q";align-items:center;gap:4px 12px;padding:14px 0;border-bottom:1px dashed rgba(64,34,31,.18)}
+.item .n{grid-area:n;font-family:var(--display);font-size:15px;font-weight:800;color:var(--tan)}
+.item .nm{grid-area:nm;font-weight:600;font-size:17px;line-height:1.3}
 .item .sub{display:block;font-weight:400;font-size:13.5px;color:var(--muted);margin-top:1px}
-.item .pr{font-family:var(--display);font-weight:700;font-size:17px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.item .pr{grid-area:pr;font-family:var(--display);font-weight:700;font-size:17px;font-variant-numeric:tabular-nums;white-space:nowrap}
 .item .pr.changed{color:var(--moss)}
 .add{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(64,34,31,.25);background:transparent;cursor:pointer;display:grid;place-items:center;transition:background .3s,border-color .3s,transform .2s}
-.add:hover{border-color:var(--brown);transform:rotate(90deg)}
-.add.has{background:var(--forest);border-color:var(--forest);color:var(--paper);font-weight:800;font-size:14px;transform:none}
+.add:hover{border-color:var(--brown);transform:scale(1.08)}
+.add:active,.qb:active{transform:scale(.94)}
+.qty{grid-area:q;display:flex;align-items:center;justify-content:flex-end;gap:2px}
+.qty .qc{min-width:24px;text-align:center;font-family:var(--display);font-weight:800;font-size:16px;font-variant-numeric:tabular-nums;color:var(--forest)}
+.qb{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(64,34,31,.25);background:transparent;cursor:pointer;display:grid;place-items:center;transition:background .3s,border-color .3s}
+.qb:hover{border-color:var(--brown)}
+.qb svg{width:15px;height:15px}
+.qty.on .add{background:var(--forest);border-color:var(--forest);color:var(--paper)}
+.add:disabled{opacity:.35;cursor:default;transform:none}
+.add:focus-visible,.qb:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
+.tray button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media (max-width:560px){.item{grid-template-columns:32px minmax(0,1fr) auto;grid-template-areas:"n nm q" "n pr q";column-gap:10px}.item .pr{justify-self:start;font-size:15px}}
 .add svg{width:15px;height:15px}
 .m-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:22px;font-size:14px;color:var(--muted)}
 .m-foot button{background:none;border:0;padding:10px 0;color:var(--muted);text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-size:14px}
@@ -220,6 +231,22 @@ body.has-tray footer{padding-bottom:150px}
 .tray-total{font-family:var(--display);font-weight:800;font-size:22px;font-variant-numeric:tabular-nums}
 .tray-nums{font-size:14px;color:rgba(251,246,234,.85)}
 .tray-nums b{color:var(--paper)}
+.tray-acts{display:flex;gap:6px;flex:none}
+.tray-list{max-height:min(46vh,360px);overflow:auto;overscroll-behavior:contain;margin:0 0 12px;padding:0 4px 10px 0;border-bottom:1px solid rgba(251,246,234,.16)}
+.tray-list[hidden]{display:none}
+.tl-row{display:grid;grid-template-columns:34px minmax(0,1fr) auto auto;align-items:center;gap:8px;padding:8px 0;border-bottom:1px dashed rgba(251,246,234,.14)}
+.tl-row:last-child{border-bottom:0}
+.tl-n{font-family:var(--display);font-weight:800;font-size:14px;color:var(--gold)}
+.tl-nm{font-weight:600;font-size:15px;line-height:1.25}
+.tl-nm small{display:block;font-weight:400;font-size:13px;color:rgba(251,246,234,.7);font-variant-numeric:tabular-nums}
+.tl-q{display:flex;align-items:center;gap:2px}
+.tl-q span{min-width:22px;text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
+.tray .tl-q button,.tray .tl-x{width:40px;min-height:40px;padding:0;display:grid;place-items:center}
+.tray .tl-x{border-color:transparent}
+.tray .tl-x:hover{border-color:rgba(251,246,234,.4)}
+.tray .tl-q svg,.tray .tl-x svg{width:14px;height:14px}
+body.tray-open .totop{opacity:0;pointer-events:none}
+@media (max-width:560px){.tray{padding:12px 12px 12px 16px}.tray-total{font-size:18px}.tray-nums{font-size:13px}.tray-acts button{padding:0 12px}}
 .tray button{min-height:42px;padding:0 16px;border-radius:999px;border:1px solid rgba(251,246,234,.4);background:transparent;color:var(--paper);font-weight:600;font-size:13.5px;cursor:pointer}
 
 /* ---------- visit ---------- */
@@ -291,7 +318,8 @@ footer{position:relative;margin-top:clamp(120px,13vw,180px);background:var(--for
 @keyframes rise{from{opacity:0;transform:translateY(24px) scaleY(.3)}to{opacity:1;transform:none}}
 /* back to top */
 .totop{position:fixed;right:18px;bottom:18px;z-index:50;width:64px;height:64px;border-radius:50%;border:0;background:var(--paper);box-shadow:0 10px 26px rgba(37,28,23,.2);display:grid;place-items:center;cursor:pointer;opacity:0;transform:translateY(20px) scale(.8);transition:opacity .4s,transform .5s var(--ease)}
-.totop.show{opacity:1;transform:none}
+.totop{visibility:hidden}
+.totop.show{opacity:1;transform:none;visibility:visible}
 .totop svg{width:44px;height:auto;overflow:visible}
 .totop .steam{animation:none;opacity:.0;transition:opacity .3s,transform .5s var(--ease);transform-box:fill-box;transform-origin:50% 100%}
 .totop:hover .steam{opacity:1;transform:translateY(-10px);animation:steam 1.6s ease-in-out infinite}
@@ -378,8 +406,8 @@ body.has-tray .totop{bottom:110px}
 <section class="hero" id="top" aria-label="Xing Long">
   <h1 class="sr">Xing Long · Bar Cafeteria · Terrassa</h1>
   <div id="slides">
-    <div class="slide on" style="--o:50% 55%"><img src="img/h-terrassa.jpg" alt="" data-ialt="s1alt"></div>
-    <div class="slide" style="--o:50% 50%"><img src="img/h-arros.jpg" alt="" data-ialt="s2alt"></div>
+    <div class="slide on" style="--o:50% 50%"><img src="img/h-arros.jpg" alt="" data-ialt="s2alt" fetchpriority="high"></div>
+    <div class="slide" style="--o:50% 55%"><img src="img/h-terrassa.jpg" alt="" data-ialt="s1alt"></div>
     <div class="slide" style="--o:50% 60%"><img src="img/h-porxo.jpg" alt="" data-ialt="s3alt"></div>
     <div class="slide" style="--o:50% 45%"><img src="img/h-tallarines.jpg" alt="" data-ialt="s4alt"></div>
     <div class="slide" style="--o:50% 50%"><img src="img/h-braves.jpg" alt="" data-ialt="s5alt"></div>
@@ -408,7 +436,7 @@ body.has-tray .totop{bottom:110px}
       <svg class="puff p2" viewBox="300 28 75 95" aria-hidden="true" style="color:#C9AE78;left:52%"><use href="#curl1"/></svg>
     </div>
   </div>
-  <div class="cap" id="cap" aria-live="polite"><div class="t" id="capT"></div><div class="s" id="capS"></div></div>
+  <div class="cap" id="cap"><div class="t" id="capT"></div><div class="s" id="capS"></div></div>
   <div class="dots" id="dots" role="group" aria-label="Fotos"></div>
 </section>
 <div class="band" aria-hidden="true"></div>
@@ -527,12 +555,12 @@ body.has-tray .totop{bottom:110px}
     <p class="f-line" data-i="footLine">Cuina casolana i begudes al cor de Terrassa.</p>
     <div class="foot">
       <span>Xing Long · Bar Cafeteria · C/ Miquel Vives 28, 08222 Terrassa · 931 912 974</span>
-      <span class="adm"><span data-i="madeBy">Web feta per</span> <span class="adm-logo"><span class="adm-mark" aria-hidden="true">adm</span><span class="adm-name">ADM Solutions</span></span></span>
+      <span class="adm"><span data-i="madeBy">Web feta per</span> <span class="adm-logo"><span class="adm-mark" aria-hidden="true">lw</span><span class="adm-name">Lampion Works</span></span></span>
     </div>
   </div>
 </footer>
 
-<div class="tray" id="tray" aria-live="polite"><div class="tray-row"><div><div class="tray-total" id="trayTotal"></div><div class="tray-nums" id="trayNums"></div></div><button type="button" id="trayClear" data-i="clear">Buidar</button></div></div>
+<div class="tray" id="tray"><div class="tray-list" id="trayList" hidden></div><div class="tray-row"><div aria-live="polite"><div class="tray-total" id="trayTotal"></div><div class="tray-nums" id="trayNums"></div></div><div class="tray-acts"><button type="button" id="trayToggle" aria-expanded="false" aria-controls="trayList">Llista</button><button type="button" id="trayClear" data-i="clear">Buidar</button></div></div></div>
 
 <div class="ed" id="ed" role="dialog" aria-modal="true" aria-labelledby="edTitle">
   <div class="ed-head"><div class="wrap"><h2 id="edTitle" data-i="edTitle">Canviar preus</h2><button class="btn dark" type="button" id="closeEd" data-i="close">Tancar</button></div></div>
@@ -546,7 +574,7 @@ body.has-tray .totop{bottom:110px}
 "use strict";
 var T={
 ca:{navDishes:"Plats",navLily:"El lloc",navTerrace:"Terrassa",navMenu:"Carta",navVisit:"On som",
- slides:[["La terrassa", "Davant del parc, a dos minuts de l’ESEIAAT"], ["Arròs fregit", "El plat que fa tornar tothom"], ["Sota el porxo", "Més de vint places a l’aire lliure"], ["Tallarines al wok", "Racions per sortir ben tip"], ["Patates braves", "Per compartir amb una canya"]],
+ slides:[["Arròs fregit", "El plat que fa tornar tothom"], ["La terrassa", "Davant del parc, a dos minuts de l’ESEIAAT"], ["Sota el porxo", "Més de vint places a l’aire lliure"], ["Tallarines al wok", "Racions per sortir ben tip"], ["Patates braves", "Per compartir amb una canya"]],
  s1alt:"El sol entre els arbres del parc, des de la terrassa",s2alt:"Un plat d’arròs fregit amb pollastre",s3alt:"La terrassa sota el porxo, amb gent dinant",s4alt:"Un plat de tallarines saltejades",s5alt:"Patates braves amb una canya",
  lilyKicker:"Des de les set del matí",lilyTitle:"Un clàssic de Terrassa",
  lilyText:"Estudiants, veïns i gent que surt de la feina: a Xing Long hi dina tothom. Arròs fregit i tallarines fets al moment al wok, entrepans i tapes. Cuina casolana, servida amb un somriure.",lilyText2:"I a fora, la terrassa: gespa, arbres i sol. Un racó tranquil per desconnectar.",
@@ -561,9 +589,9 @@ ca:{navDishes:"Plats",navLily:"El lloc",navTerrace:"Terrassa",navMenu:"Carta",na
  clear:"Buidar",say:"Números de la carta:",items1:"plat",itemsN:"plats",
  edTitle:"Canviar preus",close:"Tancar",reset:"Preus originals",save:"Desar",saved:"Preus desats",resetDone:"Preus originals recuperats",
  edDemo:"Toca + o − (10 cèntims) o escriu el preu nou i prem Desar: la carta s’actualitza a l’instant. En aquesta demo, els canvis només es guarden en aquest telèfon.",
- open:"Obert ara",closed:"Tancat · obre a les 7:00",todayOpen:"Ara mateix és obert, fins a les 23:30.",todayClosed:"Ara és tancat. Obre a les 7:00.",add:"Afegir",menuBtn:"Menú",closeBtn:"Tancar",top:"Tornar a dalt"},
+ open:"Obert ara",closed:"Tancat · obre a les 7:00",todayOpen:"Ara mateix és obert, fins a les 23:30.",todayClosed:"Ara és tancat. Obre a les 7:00.",add:"Afegir",less:"Un menys",remove:"Treure",showList:"Veure llista",hideList:"Amagar",menuBtn:"Menú",closeBtn:"Tancar",top:"Tornar a dalt"},
 es:{navDishes:"Platos",navLily:"El sitio",navTerrace:"Terraza",navMenu:"Carta",navVisit:"Dónde",
- slides:[["La terraza", "Frente al parque, a dos minutos de la ESEIAAT"], ["Arroz frito", "El plato que hace volver a todos"], ["Bajo el porche", "Más de veinte plazas al aire libre"], ["Tallarines al wok", "Raciones para salir lleno"], ["Patatas bravas", "Para compartir con una caña"]],
+ slides:[["Arroz frito", "El plato que hace volver a todos"], ["La terraza", "Frente al parque, a dos minutos de la ESEIAAT"], ["Bajo el porche", "Más de veinte plazas al aire libre"], ["Tallarines al wok", "Raciones para salir lleno"], ["Patatas bravas", "Para compartir con una caña"]],
  s1alt:"El sol entre los árboles del parque, desde la terraza",s2alt:"Un plato de arroz frito con pollo",s3alt:"La terraza bajo el porche, con gente comiendo",s4alt:"Un plato de tallarines salteados",s5alt:"Patatas bravas con una caña",
  lilyKicker:"Desde las siete de la mañana",lilyTitle:"Un clásico de Terrassa",
  lilyText:"Estudiantes, vecinos y gente que sale del trabajo: en Xing Long come todo el mundo. Arroz frito y tallarines hechos al momento en el wok, bocadillos y tapas. Cocina casera, servida con una sonrisa.",lilyText2:"Y fuera, la terraza: césped, árboles y sol. Un rincón tranquilo para desconectar.",
@@ -578,9 +606,9 @@ es:{navDishes:"Platos",navLily:"El sitio",navTerrace:"Terraza",navMenu:"Carta",n
  clear:"Vaciar",say:"Números de la carta:",items1:"plato",itemsN:"platos",
  edTitle:"Cambiar precios",close:"Cerrar",reset:"Precios originales",save:"Guardar",saved:"Precios guardados",resetDone:"Precios originales recuperados",
  edDemo:"Toca + o − (10 céntimos) o escribe el precio nuevo y pulsa Guardar: la carta se actualiza al instante. En esta demo, los cambios solo se guardan en este teléfono.",
- open:"Abierto ahora",closed:"Cerrado · abre a las 7:00",todayOpen:"Ahora mismo está abierto, hasta las 23:30.",todayClosed:"Ahora está cerrado. Abre a las 7:00.",add:"Añadir",menuBtn:"Menú",closeBtn:"Cerrar",top:"Volver arriba"},
+ open:"Abierto ahora",closed:"Cerrado · abre a las 7:00",todayOpen:"Ahora mismo está abierto, hasta las 23:30.",todayClosed:"Ahora está cerrado. Abre a las 7:00.",add:"Añadir",less:"Uno menos",remove:"Quitar",showList:"Ver lista",hideList:"Ocultar",menuBtn:"Menú",closeBtn:"Cerrar",top:"Volver arriba"},
 en:{navDishes:"Dishes",navLily:"The spot",navTerrace:"Terrace",navMenu:"Menu",navVisit:"Find us",
- slides:[["The terrace", "Facing the park, two minutes from ESEIAAT"], ["Fried rice", "The dish everyone comes back for"], ["Under the porch", "More than twenty seats outdoors"], ["Wok noodles", "Portions that leave you full"], ["Patatas bravas", "To share over a beer"]],
+ slides:[["Fried rice", "The dish everyone comes back for"], ["The terrace", "Facing the park, two minutes from ESEIAAT"], ["Under the porch", "More than twenty seats outdoors"], ["Wok noodles", "Portions that leave you full"], ["Patatas bravas", "To share over a beer"]],
  s1alt:"Sun through the park’s trees, seen from the terrace",s2alt:"A plate of fried rice with chicken",s3alt:"The terrace under the porch, with people having lunch",s4alt:"A plate of stir-fried noodles",s5alt:"Patatas bravas with a beer",
  lilyKicker:"From seven in the morning",lilyTitle:"A Terrassa favourite",
  lilyText:"Students, neighbours and people heading home from work: everyone eats at Xing Long. Fried rice and noodles fresh from the wok, sandwiches and tapas. Home-style cooking, served with a smile.",lilyText2:"And outside, the terrace: grass, trees and sun. A quiet spot to switch off.",
@@ -595,8 +623,8 @@ en:{navDishes:"Dishes",navLily:"The spot",navTerrace:"Terrace",navMenu:"Menu",na
  clear:"Clear",say:"Menu numbers:",items1:"item",itemsN:"items",
  edTitle:"Change prices",close:"Close",reset:"Original prices",save:"Save",saved:"Prices saved",resetDone:"Original prices restored",
  edDemo:"Tap + or − (10 cents) or type the new price, then press Save: the menu updates instantly. In this demo, changes are only stored on this phone.",
- open:"Open now",closed:"Closed · opens at 7:00",todayOpen:"Open right now, until 23:30.",todayClosed:"Closed right now. Opens at 7:00.",add:"Add",menuBtn:"Menu",closeBtn:"Close",top:"Back to top"},
-zh:{navDishes:"菜品",navLily:"关于我们",navTerrace:"露台",navMenu:"菜单",navVisit:"位置",slides:[["露台", "面朝公园，距 ESEIAAT 两分钟"], ["炒饭", "让人一来再来的招牌菜"], ["门廊下", "二十多个户外座位"], ["铁锅炒面", "分量十足，保证吃饱"], ["西班牙辣味土豆", "配一杯啤酒一起分享"]],s1alt:"从露台望去，阳光穿过公园的树木",s2alt:"一盘鸡肉炒饭",s3alt:"门廊下的露台，有人在用餐",s4alt:"一盘炒面",s5alt:"辣味土豆配啤酒",lilyKicker:"每天早上七点开门",lilyTitle:"泰拉萨人的心头好",lilyText:"学生、街坊和下班的人——大家都来 Xing Long 吃饭。现炒的炒饭和炒面，还有三明治和西班牙小吃。家常味道，微笑上桌。",lilyText2:"门外是露台：草坪、树荫和阳光，一个安静放松的角落。",reviews:"Google 上 86 条评价",reviewsLink:"查看评价 ↗",doorCap:"C/ Miquel Vives, 28",altDoor:"Xing Long 的门口，壁灯与红砖墙",dishKicker:"人人必点",dishTitle:"菜品",dishText:"铁锅炒饭和炒面、适合分享的西班牙小吃，还有现做的三明治。",fullMenu:"完整菜单",terKicker:"这里的灵魂",terTitle:"露台",terText:"店内不大，精彩都在户外。门廊下摆着桌椅，正前方就是公园的草坪和大树。",terCap:"面朝公园",altWide:"门廊下的露台，面朝公园",altGrass:"草坪前的铝制餐桌",altChair:"公园草坪上的一把椅子",altPorch:"门廊柱子之间的餐桌",menuKicker:"厨房里的一切",menuTitle:"菜单",menuNote:"点 + 加菜，查看总价。",menuFoot:"价格已含增值税。",editLink:"修改价格",visitKicker:"欢迎光临",visitTitle:"来吃饭吧",kWhere:"地址",kWhen:"营业时间",kTake:"外卖自取",directions:"导航 ↗",everyday:"每天",takeNote:"打电话点餐，然后到店自取。",madeBy:"网站制作",footLine:"泰拉萨市中心的家常菜与饮品。",clear:"清空",say:"菜单编号：",items1:"份",itemsN:"份",edTitle:"修改价格",close:"关闭",reset:"恢复原价",save:"保存",saved:"价格已保存",resetDone:"已恢复原价",edDemo:"点 + 或 −（每次 0.10 欧元），或直接输入新价格，然后点保存：菜单会立即更新。在这个演示版中，修改只保存在这部手机上。",open:"营业中",closed:"已打烊 · 7:00 开门",todayOpen:"现在正在营业，营业到 23:30。",todayClosed:"现在已打烊，早上 7:00 开门。",add:"添加",menuBtn:"菜单",closeBtn:"关闭",top:"回到顶部"}
+ open:"Open now",closed:"Closed · opens at 7:00",todayOpen:"Open right now, until 23:30.",todayClosed:"Closed right now. Opens at 7:00.",add:"Add",less:"One less",remove:"Remove",showList:"Show list",hideList:"Hide",menuBtn:"Menu",closeBtn:"Close",top:"Back to top"},
+zh:{navDishes:"菜品",navLily:"关于我们",navTerrace:"露台",navMenu:"菜单",navVisit:"位置",slides:[["炒饭", "让人一来再来的招牌菜"], ["露台", "面朝公园，距 ESEIAAT 两分钟"], ["门廊下", "二十多个户外座位"], ["铁锅炒面", "分量十足，保证吃饱"], ["西班牙辣味土豆", "配一杯啤酒一起分享"]],s1alt:"从露台望去，阳光穿过公园的树木",s2alt:"一盘鸡肉炒饭",s3alt:"门廊下的露台，有人在用餐",s4alt:"一盘炒面",s5alt:"辣味土豆配啤酒",lilyKicker:"每天早上七点开门",lilyTitle:"泰拉萨人的心头好",lilyText:"学生、街坊和下班的人——大家都来 Xing Long 吃饭。现炒的炒饭和炒面，还有三明治和西班牙小吃。家常味道，微笑上桌。",lilyText2:"门外是露台：草坪、树荫和阳光，一个安静放松的角落。",reviews:"Google 上 86 条评价",reviewsLink:"查看评价 ↗",doorCap:"C/ Miquel Vives, 28",altDoor:"Xing Long 的门口，壁灯与红砖墙",dishKicker:"人人必点",dishTitle:"菜品",dishText:"铁锅炒饭和炒面、适合分享的西班牙小吃，还有现做的三明治。",fullMenu:"完整菜单",terKicker:"这里的灵魂",terTitle:"露台",terText:"店内不大，精彩都在户外。门廊下摆着桌椅，正前方就是公园的草坪和大树。",terCap:"面朝公园",altWide:"门廊下的露台，面朝公园",altGrass:"草坪前的铝制餐桌",altChair:"公园草坪上的一把椅子",altPorch:"门廊柱子之间的餐桌",menuKicker:"厨房里的一切",menuTitle:"菜单",menuNote:"点 + 加菜，查看总价。",menuFoot:"价格已含增值税。",editLink:"修改价格",visitKicker:"欢迎光临",visitTitle:"来吃饭吧",kWhere:"地址",kWhen:"营业时间",kTake:"外卖自取",directions:"导航 ↗",everyday:"每天",takeNote:"打电话点餐，然后到店自取。",madeBy:"网站制作",footLine:"泰拉萨市中心的家常菜与饮品。",clear:"清空",say:"菜单编号：",items1:"份",itemsN:"份",edTitle:"修改价格",close:"关闭",reset:"恢复原价",save:"保存",saved:"价格已保存",resetDone:"已恢复原价",edDemo:"点 + 或 −（每次 0.10 欧元），或直接输入新价格，然后点保存：菜单会立即更新。在这个演示版中，修改只保存在这部手机上。",open:"营业中",closed:"已打烊 · 7:00 开门",todayOpen:"现在正在营业，营业到 23:30。",todayClosed:"现在已打烊，早上 7:00 开门。",add:"添加",less:"减一份",remove:"移除",showList:"查看清单",hideList:"收起",menuBtn:"菜单",closeBtn:"关闭",top:"回到顶部"}
 };
 /* dish cards: photo cards reference a menu number; text cards use the logo bowl */
 var CARDS=[
@@ -700,11 +728,18 @@ function renderTabs(){
 }
 function movePill(){var a=tabsEl.querySelector('.tab[aria-selected="true"]');if(!a)return;pill.style.width=a.offsetWidth+"px";pill.style.transform="translateX("+(a.offsetLeft-5)+"px)";var l=a.offsetLeft,r=l+a.offsetWidth;if(l<tabsEl.scrollLeft||r>tabsEl.scrollLeft+tabsEl.clientWidth)tabsEl.scrollTo({left:l-20,behavior:"smooth"})}
 window.addEventListener("resize",movePill);
+var lastPanel=null,MAXQ=20,minus='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>',cross='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',listOpen=false;
+function qtyOf(k){return tray[k]?tray[k].q:0}
+function sel(k,r,scope){return scope+' [data-k="'+(window.CSS&&CSS.escape?CSS.escape(k):k)+'"][data-r="'+r+'"]'}
+/* change a dish's quantity from the menu or the list, then keep keyboard focus on a sensible button */
+function changeQty(k,s,it,i,d,r,scope){var q=Math.max(0,Math.min(MAXQ,qtyOf(k)+d));if(!q)delete tray[k];else{if(!tray[k])tray[k]={q:0,s:s,it:it,i:i};tray[k].q=q}
+  renderPanel();renderTray();scope=scope||"#panel";
+  var f=document.querySelector(sel(k,r,scope))||document.querySelector(sel(k,"p",scope))||(scope==="#trayList"&&Object.keys(tray).length?document.querySelector("#trayList button"):document.querySelector(sel(k,"p","#panel")));if(f&&!f.disabled)f.focus()}
 var plus='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
 function renderPanel(){
   var s=DATA.seccions.filter(function(x){return x.id===current})[0];if(!s)return;
   panel.setAttribute("aria-labelledby","tab-"+s.id);panel.innerHTML="";
-  var w=document.createElement("div");w.className="panel";
+  var w=document.createElement("div");w.className="panel"+(s.id===lastPanel?" still":"");lastPanel=s.id;
   if(s.nota){var p=document.createElement("p");p.className="note";p.textContent=s.nota[lang];w.appendChild(p)}
   s.items.forEach(function(it,i){
     var k=key(s,it,i),row=document.createElement("div");row.className="item";
@@ -712,21 +747,41 @@ function renderPanel(){
     var nm=document.createElement("span");nm.className="nm";nm.textContent=it[lang];
     var sub=lang==="ca"?it.es:it.ca;if(sub!==it[lang]){var sb=document.createElement("span");sb.className="sub";sb.textContent=sub;nm.appendChild(sb)}
     var pr=document.createElement("span");pr.className="pr"+((k in overrides)?" changed":"");pr.textContent=fmt(price(s,it,i));
-    var add=document.createElement("button");add.type="button";add.setAttribute("aria-label",t("add")+": "+it[lang]);
-    function paint(){add.className="add"+(tray[k]?" has":"");add.innerHTML=tray[k]?String(tray[k].q):plus}
-    paint();add.addEventListener("click",function(){if(!tray[k])tray[k]={q:0,s:s,it:it,i:i};tray[k].q++;if(tray[k].q>9)delete tray[k];paint();renderTray()});
-    row.appendChild(n);row.appendChild(nm);row.appendChild(pr);row.appendChild(add);w.appendChild(row);
+    var q=qtyOf(k),qw=document.createElement("div");qw.className="qty"+(q?" on":"");
+    if(q){var mi=document.createElement("button");mi.type="button";mi.className="qb";mi.dataset.k=k;mi.dataset.r="m";mi.innerHTML=minus;mi.setAttribute("aria-label",t("less")+": "+it[lang]);
+      mi.addEventListener("click",function(){changeQty(k,s,it,i,-1,"m")});
+      var qc=document.createElement("span");qc.className="qc";qc.textContent=q;qc.setAttribute("aria-hidden","true");qw.appendChild(mi);qw.appendChild(qc)}
+    var add=document.createElement("button");add.type="button";add.className="add";add.dataset.k=k;add.dataset.r="p";add.innerHTML=plus;
+    add.setAttribute("aria-label",t("add")+": "+it[lang]+(q?" ("+q+")":""));add.disabled=q>=MAXQ;
+    add.addEventListener("click",function(){changeQty(k,s,it,i,1,"p")});qw.appendChild(add);
+    row.appendChild(n);row.appendChild(nm);row.appendChild(pr);row.appendChild(qw);w.appendChild(row);
   });
   panel.appendChild(w);
 }
 function renderTray(){
   var tot=0,cnt=0,nums=[];Object.keys(tray).forEach(function(k){var x=tray[k];tot+=price(x.s,x.it,x.i)*x.q;cnt+=x.q;nums.push((x.q>1?x.q+"× ":"")+(x.it.n==="+"?x.it[lang]:x.it.n))});
-  var el=document.getElementById("tray");if(!cnt){el.classList.remove("show");document.body.classList.remove("has-tray");return}
-  el.classList.add("show");document.body.classList.add("has-tray");
+  var el=document.getElementById("tray");if(!cnt){el.classList.remove("show");document.body.classList.remove("has-tray");document.getElementById("trayList").innerHTML="";setList(false);return}
+  el.classList.add("show");document.body.classList.add("has-tray");renderList();
+  document.getElementById("trayToggle").textContent=listOpen?t("hideList"):t("showList");
   document.getElementById("trayTotal").textContent=fmt(Math.round(tot*100)/100)+" · "+cnt+" "+(cnt===1?t("items1"):t("itemsN"));
   var tn=document.getElementById("trayNums");tn.textContent=t("say")+" ";var b=document.createElement("b");b.textContent=nums.join(" · ");tn.appendChild(b);
 }
-document.getElementById("trayClear").addEventListener("click",function(){tray={};renderTray();renderPanel()});
+/* the list inside the tray: every dish with − / + and a remove button */
+function renderList(){var L=document.getElementById("trayList");L.innerHTML="";
+  Object.keys(tray).forEach(function(k){var x=tray[k],nm=x.it[lang],row=document.createElement("div");row.className="tl-row";
+    var n=document.createElement("span");n.className="tl-n";n.textContent=x.it.n==="+"?"":x.it.n;
+    var tx=document.createElement("span");tx.className="tl-nm";tx.textContent=nm;var sm=document.createElement("small");sm.textContent=fmt(Math.round(price(x.s,x.it,x.i)*x.q*100)/100);tx.appendChild(sm);
+    var q=document.createElement("span");q.className="tl-q";
+    var mi=document.createElement("button");mi.type="button";mi.dataset.k=k;mi.dataset.r="m";mi.innerHTML=minus;mi.setAttribute("aria-label",t("less")+": "+nm);mi.addEventListener("click",function(){changeQty(k,x.s,x.it,x.i,-1,"m","#trayList")});
+    var c=document.createElement("span");c.textContent=x.q;c.setAttribute("aria-hidden","true");
+    var pl=document.createElement("button");pl.type="button";pl.dataset.k=k;pl.dataset.r="p";pl.innerHTML=plus;pl.disabled=x.q>=MAXQ;pl.setAttribute("aria-label",t("add")+": "+nm+" ("+x.q+")");pl.addEventListener("click",function(){changeQty(k,x.s,x.it,x.i,1,"p","#trayList")});
+    q.appendChild(mi);q.appendChild(c);q.appendChild(pl);
+    var rm=document.createElement("button");rm.type="button";rm.className="tl-x";rm.innerHTML=cross;rm.setAttribute("aria-label",t("remove")+": "+nm);rm.addEventListener("click",function(){changeQty(k,x.s,x.it,x.i,-MAXQ,"x","#trayList")});
+    row.appendChild(n);row.appendChild(tx);row.appendChild(q);row.appendChild(rm);L.appendChild(row)})}
+function setList(v){listOpen=v;var L=document.getElementById("trayList"),b=document.getElementById("trayToggle");L.hidden=!v;b.setAttribute("aria-expanded",v?"true":"false");b.textContent=v?t("hideList"):t("showList");document.body.classList.toggle("tray-open",v)}
+document.getElementById("trayToggle").addEventListener("click",function(){setList(!listOpen)});
+document.getElementById("tray").addEventListener("keydown",function(e){if(e.key==="Escape"&&listOpen){setList(false);document.getElementById("trayToggle").focus()}});
+document.getElementById("trayClear").addEventListener("click",function(){tray={};renderTray();renderPanel();var a=document.querySelector("#panel .add");if(a)a.focus()});
 
 /* price editor */
 var ed=document.getElementById("ed"),edList=document.getElementById("edList");
